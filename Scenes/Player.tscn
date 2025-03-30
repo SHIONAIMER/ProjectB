@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c32sni1ujamm2"]
+[gd_scene load_steps=19 format=3 uid="uid://c32sni1ujamm2"]
 
 [ext_resource type="Texture2D" uid="uid://dnwwe72oop220" path="res://AssetBundle/Sprites/Foxy.png" id="1_ld17l"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_xwpfp"]
@@ -18,6 +18,22 @@ region = Rect2(66, 0, 33, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkrgq"]
 atlas = ExtResource("1_ld17l")
 region = Rect2(99, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vu11"]
+atlas = ExtResource("1_ld17l")
+region = Rect2(0, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcfnj"]
+atlas = ExtResource("1_ld17l")
+region = Rect2(33, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tawma"]
+atlas = ExtResource("1_ld17l")
+region = Rect2(66, 288, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgxfa"]
+atlas = ExtResource("1_ld17l")
+region = Rect2(99, 288, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofymv"]
 atlas = ExtResource("1_ld17l")
@@ -64,6 +80,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8vu11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcfnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tawma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgxfa")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ofymv")
 }, {
 "duration": 1.0,
@@ -93,9 +126,10 @@ radius = 7.07107
 script = ExtResource("1_xwpfp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_15ypw")
-animation = &"idle"
+animation = &"roll"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

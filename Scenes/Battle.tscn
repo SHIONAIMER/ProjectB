@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdwv7g5jxwy50"]
+[gd_scene load_steps=4 format=3 uid="uid://cdwv7g5jxwy50"]
 
 [ext_resource type="Texture2D" uid="uid://b0yckvti27vy8" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_mbvvq"]
 [ext_resource type="PackedScene" uid="uid://c32sni1ujamm2" path="res://Scenes/Player.tscn" id="2_qhwic"]
+[ext_resource type="Script" path="res://Scripts/battle_camera.gd" id="3_pvf7b"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,7 +14,13 @@ texture = ExtResource("1_mbvvq")
 position = Vector2(120, 0)
 texture = ExtResource("1_mbvvq")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
-
 [node name="Player" parent="." instance=ExtResource("2_qhwic")]
+
+[node name="BattleCamera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(3.215, 3.215)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("3_pvf7b")
+target = NodePath("../Player")
+follow_speed = 10.0
