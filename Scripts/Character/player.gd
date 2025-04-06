@@ -1,4 +1,4 @@
-extends "res://Scripts/Character/character.gd"
+class_name Player extends Character
 
 const ROLL_SPEED = 1.5
 const ROLL_DURATION = 0.3

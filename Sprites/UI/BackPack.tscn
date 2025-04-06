@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpjicydjmuhq5"]
+
+[ext_resource type="Script" uid="uid://ixktun8x0wkl" path="res://Scripts/Tools/backpack.gd" id="1_2gb8g"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 1260.0
+offset_bottom = 660.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_2gb8g")

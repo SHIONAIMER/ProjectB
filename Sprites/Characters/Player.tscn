@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cksggkhx324pr"]
 
 [ext_resource type="Texture2D" uid="uid://b538hdodw4olo" path="res://AssetBundle/Sprites/Foxy.png" id="1_bplav"]
-[ext_resource type="Script" path="res://Scripts/Character/player.gd" id="1_mjskw"]
+[ext_resource type="Script" uid="uid://dhj5iasrsp5lw" path="res://Scripts/Character/player.gd" id="1_mjskw"]
 [ext_resource type="Material" uid="uid://ivjk5giie22q" path="res://Materials/player_material.tres" id="3_material"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sncg"]
@@ -140,6 +140,7 @@ texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_ds7fq")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.923755
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

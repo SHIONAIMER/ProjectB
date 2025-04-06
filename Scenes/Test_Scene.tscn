@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://bh5fg6ni2ouwl"]
 
 [ext_resource type="Material" uid="uid://dglf7d3yrwk52" path="res://Materials/ground_material.tres" id="1_af2ci"]
-[ext_resource type="PackedScene" uid="uid://cksggkhx324pr" path="res://Sprites/Player.tscn" id="1_g1mtq"]
+[ext_resource type="PackedScene" uid="uid://cksggkhx324pr" path="res://Sprites/Characters/Player.tscn" id="1_g1mtq"]
 [ext_resource type="Material" uid="uid://dwq7enwci24ha" path="res://Materials/background_material.tres" id="2_c0uu4"]
-[ext_resource type="Script" path="res://Shaders/camera_post_process.gd" id="3_w3x6t"]
-[ext_resource type="Script" path="res://Scripts/Tools/battle_camera.gd" id="4_b0k03"]
-[ext_resource type="PackedScene" uid="uid://b30njxvfoddxh" path="res://Sprites/Slim.tscn" id="6_03ud6"]
+[ext_resource type="Script" uid="uid://1ql8g725pqr3" path="res://Shaders/camera_post_process.gd" id="3_w3x6t"]
+[ext_resource type="Script" uid="uid://trdn8g20vq33" path="res://Scripts/Tools/battle_camera.gd" id="4_b0k03"]
+[ext_resource type="PackedScene" uid="uid://b30njxvfoddxh" path="res://Sprites/Characters/Slim.tscn" id="6_03ud6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g8gka"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -67,7 +67,7 @@ compositor = SubResource("Compositor_c1dy0")
 doppler_tracking = 2
 current = true
 script = ExtResource("4_b0k03")
-target = NodePath("../Player")
+target = NodePath("")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.885937, 0.463806, 0, -0.463806, 0.885937, 0, 1.1486, 0)
@@ -75,12 +75,6 @@ visible = false
 light_energy = 2.0
 shadow_enabled = true
 shadow_bias = 0.03
-
-[node name="Player" parent="." instance=ExtResource("1_g1mtq")]
-
-[node name="Slim" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_03ud6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.946573, 0, 0.0125713)
-target = NodePath("../Player")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678908, 0.443087, 0.130001)
@@ -95,3 +89,8 @@ light_color = Color(1, 0.816667, 0, 1)
 shadow_enabled = true
 shadow_bias = 0.0
 omni_range = 1.25453
+
+[node name="Player" parent="." instance=ExtResource("1_g1mtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0409384)
+
+[node name="Slim" parent="." instance=ExtResource("6_03ud6")]

@@ -1,10 +1,10 @@
-extends "res://Scripts/Character/character.gd"
+class_name Enemy extends Character
 
 @export var target: Node3D
 @export var detection_range: float = 5.0  # 检测范围
 @export var stop_distance: float = 0.1    # 停止距离
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not target:
 		return
 		

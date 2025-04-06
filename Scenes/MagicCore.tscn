@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://deddxkhgldehl"]
+
+[ext_resource type="Script" uid="uid://ixktun8x0wkl" path="res://Scripts/Tools/backpack.gd" id="1_rypy0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thobo"]
+bg_color = Color(0.177308, 0.656342, 0.821713, 1)
+border_color = Color(0.504849, 0.926614, 0, 1)
+
+[node name="MagicCore" type="Node2D"]
+script = ExtResource("1_rypy0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_rypy0")
+
+[node name="BackgroundPanel" type="Panel" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_thobo")
+
+[node name="PackageContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 18.0
+offset_top = 790.0
+offset_right = 1894.0
+offset_bottom = 1052.0
+
+[node name="InformationContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 1310.0
+offset_top = 117.0
+offset_right = 1886.0
+offset_bottom = 778.0
+
+[node name="UIContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 14.0
+offset_right = 1891.0
+offset_bottom = 97.0

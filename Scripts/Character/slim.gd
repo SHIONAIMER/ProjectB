@@ -1,1 +1,1 @@
-extends "res://Scripts/Character/enemy.gd"
+class_name Slim extends Enemy
