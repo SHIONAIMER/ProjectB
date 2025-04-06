@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://bh5fg6ni2ouwl"]
+
+[ext_resource type="Material" uid="uid://dglf7d3yrwk52" path="res://Materials/ground_material.tres" id="1_af2ci"]
+[ext_resource type="PackedScene" uid="uid://cksggkhx324pr" path="res://Sprites/Player.tscn" id="1_g1mtq"]
+[ext_resource type="Material" uid="uid://dwq7enwci24ha" path="res://Materials/background_material.tres" id="2_c0uu4"]
+[ext_resource type="Script" path="res://Scripts/battle_camera.gd" id="3_gxwsp"]
+[ext_resource type="Script" path="res://Shaders/camera_post_process.gd" id="3_w3x6t"]
+[ext_resource type="PackedScene" uid="uid://b30njxvfoddxh" path="res://Sprites/Slim.tscn" id="6_03ud6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g8gka"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_c3sdv"]
+sky_material = SubResource("ProceduralSkyMaterial_g8gka")
+
+[sub_resource type="Environment" id="Environment_xs4l1"]
+sky = SubResource("Sky_c3sdv")
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 3
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wj77p"]
+material = ExtResource("1_af2ci")
+size = Vector2(20, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qwtib"]
+lightmap_size_hint = Vector2i(102, 32)
+material = ExtResource("2_c0uu4")
+size = Vector2(20, 2)
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_r0hgl"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("3_w3x6t")
+vignette_power = 0.1
+vignette_radius = 1.5
+
+[sub_resource type="Compositor" id="Compositor_c1dy0"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_r0hgl")])
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xs4l1")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_wj77p")
+metadata/_edit_lock_ = true
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+mesh = SubResource("PlaneMesh_qwtib")
+skeleton = NodePath("../Ground")
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.976526, 0.2154, 0, -0.2154, 0.976526, 0, 0.5, 1)
+compositor = SubResource("Compositor_c1dy0")
+doppler_tracking = 2
+current = true
+script = ExtResource("3_gxwsp")
+target = NodePath("../Player")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.885937, 0.463806, 0, -0.463806, 0.885937, 0, 1.1486, 0)
+visible = false
+light_energy = 2.0
+shadow_enabled = true
+shadow_bias = 0.03
+
+[node name="Player" parent="." instance=ExtResource("1_g1mtq")]
+
+[node name="Slim" parent="." instance=ExtResource("6_03ud6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.912905, 0.085227, -0.0830963)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.678908, 0.443087, 0.130001)
+light_color = Color(1, 0.816667, 0, 1)
+shadow_enabled = true
+shadow_bias = 0.0
+omni_range = 1.25453
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4232, 0.294364, 0.260001)
+light_color = Color(1, 0.816667, 0, 1)
+shadow_enabled = true
+shadow_bias = 0.0
+omni_range = 1.25453

@@ -1,0 +1,1 @@
+extends "res://Scripts/Character/enemy.gd"

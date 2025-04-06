@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ivjk5giie22q"]
+
+[ext_resource type="Texture2D" uid="uid://b538hdodw4olo" path="res://AssetBundle/Sprites/Foxy.png" id="1_norlt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sncg"]
+atlas = ExtResource("1_norlt")
+region = Rect2(0, 1, 33, 31)
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.3
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("AtlasTexture_2sncg")
+texture_filter = 2
+texture_repeat = false
+disable_receive_shadows = true

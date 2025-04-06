@@ -1,0 +1,146 @@
+[gd_scene load_steps=20 format=3 uid="uid://cksggkhx324pr"]
+
+[ext_resource type="Texture2D" uid="uid://b538hdodw4olo" path="res://AssetBundle/Sprites/Foxy.png" id="1_bplav"]
+[ext_resource type="Script" path="res://Scripts/Character/player.gd" id="1_mjskw"]
+[ext_resource type="Material" uid="uid://ivjk5giie22q" path="res://Materials/player_material.tres" id="3_material"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sncg"]
+atlas = ExtResource("1_bplav")
+region = Rect2(0, 1, 33, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03ke5"]
+atlas = ExtResource("1_bplav")
+region = Rect2(33, 1, 33, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlkbm"]
+atlas = ExtResource("1_bplav")
+region = Rect2(66, 1, 33, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvr0g"]
+atlas = ExtResource("1_bplav")
+region = Rect2(99, 1, 33, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmtqu"]
+atlas = ExtResource("1_bplav")
+region = Rect2(0, 289, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0cfr"]
+atlas = ExtResource("1_bplav")
+region = Rect2(33, 289, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qswhx"]
+atlas = ExtResource("1_bplav")
+region = Rect2(66, 289, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y508t"]
+atlas = ExtResource("1_bplav")
+region = Rect2(99, 289, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev3cd"]
+atlas = ExtResource("1_bplav")
+region = Rect2(0, 33, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h20o1"]
+atlas = ExtResource("1_bplav")
+region = Rect2(33, 33, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xafx5"]
+atlas = ExtResource("1_bplav")
+region = Rect2(66, 33, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjxvm"]
+atlas = ExtResource("1_bplav")
+region = Rect2(99, 33, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhq4s"]
+atlas = ExtResource("1_bplav")
+region = Rect2(132, 33, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_470go"]
+atlas = ExtResource("1_bplav")
+region = Rect2(165, 33, 33, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ds7fq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sncg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03ke5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlkbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvr0g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmtqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0cfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qswhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y508t")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev3cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h20o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xafx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjxvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhq4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_470go")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2pax"]
+size = Vector3(0.1, 0.2, 0.04)
+
+[node name="Player" type="CharacterBody3D"]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+slide_on_ceiling = false
+script = ExtResource("1_mjskw")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15757, 0)
+material_override = ExtResource("3_material")
+shaded = true
+alpha_cut = 2
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_ds7fq")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_e2pax")

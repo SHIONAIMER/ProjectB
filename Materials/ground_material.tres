@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dglf7d3yrwk52"]
+
+[ext_resource type="Texture2D" uid="uid://cra2ccb7p26t2" path="res://AssetBundle/Sprites/Forest-Road.png" id="1_f42mo"]
+
+[resource]
+albedo_texture = ExtResource("1_f42mo")
+uv1_triplanar = true
+texture_filter = 2
