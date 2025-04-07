@@ -1,13 +1,41 @@
 extends Node
 
 # 单例实例
-static var instance: ItemManager
+static var _instance: Node
+
+static func get_instance() -> Node:
+	if not _instance:
+		_instance = Node.new()
+	return _instance
+
+func _init() -> void:
+	_instance = self
+	add_item(Sword.new())
+	add_item(Axe.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
+	add_item(Sword.new())
 
 # 玩家拥有的所有物品
 var player_items: Array[Item] = []
-
-func _init() -> void:
-	instance = self
 
 # 添加物品到玩家物品栏
 func add_item(item: Item) -> void:

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://o4kdud61yt4d"]
+
+[ext_resource type="Texture2D" uid="uid://csbft57cpqkq4" path="res://AssetBundle/Weapons/sword_free1.png" id="1_p4dlt"]
+
+[node name="ItemCard" type="Panel"]
+custom_minimum_size = Vector2(120, 190)
+offset_right = 120.0
+offset_bottom = 190.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(110, 180)
+layout_mode = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 115.0
+offset_bottom = 185.0
+texture = ExtResource("1_p4dlt")
+expand_mode = 1
+stretch_mode = 5

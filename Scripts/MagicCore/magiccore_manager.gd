@@ -1,5 +1,7 @@
 extends TextureRect
 
+const ItemManager = preload("res://Scripts/Items/item_manager.gd")
+
 var magiccore_data = MagicCoreBase.new()
 var affected_color: Color = Color(0, 0, 1, 0.3)
 var cannot_place_color: Color = Color(1, 0, 0, 0.3)
@@ -19,7 +21,6 @@ func _ready() -> void:
 		parent.resized.connect(_on_parent_resized)
 	
 	magiccore_data.initialize_grid()
-	add_example_items()
 
 func _on_parent_resized() -> void:
 	var parent = get_parent()
@@ -207,22 +208,6 @@ func _get_item_at(pos: Vector2i) -> Item:
 
 func _process(_delta: float) -> void:
 	pass
-
-func add_example_items() -> void:
-	var sword = Sword.new()
-	var sword2 = Sword.new()
-	var axe = Axe.new()
-
-	# 将物品放入核心
-	if _can_place_item(sword, Vector2i(0, 0)):
-		_place_item(sword, Vector2i(0, 0))
-	if _can_place_item(sword2, Vector2i(0, 3)):
-		_place_item(sword2, Vector2i(0, 3))
-	if _can_place_item(axe, Vector2i(4, 4)):
-		_place_item(axe, Vector2i(4, 4))
-	
-	# 强制重绘
-	queue_redraw()
 
 func _get_affected_items(item: Item, pos: Vector2i) -> Array[Item]:
 	var affected_items: Array[Item] = []
