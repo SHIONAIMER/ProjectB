@@ -1,13 +1,17 @@
-@tool class_name Item extends Resource
+class_name Item extends Resource
 
 @export var texture: Texture2D
-@export var size: Vector2i = Vector2i(1, 1)  # 物品占用的格子数
+@export var shape: Array = [[1]]  # 物品的形状，1表示占用，0表示不占用
 @export var stack_size: int = 1  # 最大堆叠数量
 @export var current_stack: int = 1  # 当前堆叠数量
 @export var item_name: String = ""
 @export var description: String = ""
+@export var item_color: Color = Color(0, 1, 0, 1)
 
 var grid_position: Vector2i = Vector2i(-1, -1)  # 在网格中的位置
+
+func get_size() -> Vector2i:
+    return Vector2i(shape[0].size(), shape.size())
 
 func can_stack_with(other: Item) -> bool:
     return item_name == other.item_name and current_stack < stack_size
