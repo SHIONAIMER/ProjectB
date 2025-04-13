@@ -1,5 +1,30 @@
 class_name Item extends Resource
 
+enum ItemCategory {
+    None,
+    Weapon,
+}
+
+enum ItemType {
+    None,
+    Sword,
+    Axe,
+    Bow,
+    Crossbow,
+    Staff,
+    Wand,
+    Shield,
+}
+
+enum ItemRarity {
+    None,
+    Common,
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary,
+}
+
 @export var texture: Texture2D
 @export var shape: Array = [[1]]  # 物品的形状，1表示占用，0表示不占用
 @export var stack_size: int = 1  # 最大堆叠数量
@@ -7,7 +32,10 @@ class_name Item extends Resource
 @export var item_name: String = ""
 @export var description: String = ""
 @export var item_color: Color = Color(0, 1, 0, 1)
-
+@export var item_index: int = 0
+@export var item_category: ItemCategory = ItemCategory.None
+@export var item_type: ItemType = ItemType.None
+@export var item_rarity: ItemRarity = ItemRarity.None
 var grid_position: Vector2i = Vector2i(-1, -1)  # 在网格中的位置
 
 func get_size() -> Vector2i:

@@ -7,7 +7,7 @@ var is_rolling = false
 var roll_timer = 0.0
 var roll_direction = Vector3.ZERO
 
-@export var bullet = preload("res://Sprites/Bullet.tscn")
+@export var bullet = preload("res://Sprites/Items/Bullet.tscn")
 @export var bullet_speed = 1
 
 func _physics_process(delta: float) -> void:

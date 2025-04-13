@@ -8,6 +8,9 @@ func _init() -> void:
 		[0, 1]
 	]
 	stack_size = 1
+	item_category = ItemCategory.Weapon
+	item_type = ItemType.Axe
+	item_rarity = ItemRarity.Common
 	item_name = "斧"
 	description = "一把普通的斧"
 	item_color = Color(1, 0, 0, 1)
