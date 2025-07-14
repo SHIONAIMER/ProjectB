@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://deddxkhgldehl"]
 
-[ext_resource type="PackedScene" uid="uid://51f1k3jomu5f" path="res://Sprites/UI/BackPack.tscn" id="2_bxwej"]
+[ext_resource type="PackedScene" uid="uid://dpjicydjmuhq5" path="res://Sprites/UI/BackPack.tscn" id="2_bxwej"]
 [ext_resource type="PackedScene" uid="uid://clmwlbdyit5p6" path="res://Sprites/UI/MagicCore.tscn" id="2_kqbyo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thobo"]

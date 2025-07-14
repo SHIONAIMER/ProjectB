@@ -61,12 +61,13 @@ mesh = SubResource("PlaneMesh_qwtib")
 skeleton = NodePath("../Ground")
 metadata/_edit_lock_ = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.976526, 0.2154, 0, -0.2154, 0.976526, 0, 0.5, 1)
 compositor = SubResource("Compositor_c1dy0")
 doppler_tracking = 2
 current = true
 script = ExtResource("4_b0k03")
+target = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.885937, 0.463806, 0, -0.463806, 0.885937, 0, 1.1486, 0)
@@ -91,5 +92,8 @@ omni_range = 1.25453
 
 [node name="Player" parent="." instance=ExtResource("1_g1mtq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0409384)
+bullet_speed = 5
 
-[node name="Slim" parent="." instance=ExtResource("6_03ud6")]
+[node name="Slim" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_03ud6")]
+target = NodePath("../Player")
+SPEED = 0.7
